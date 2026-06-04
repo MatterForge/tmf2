@@ -51,8 +51,42 @@ function initHeroParticles() {
         particle.style.animation = `${animation} ${Math.random() * 13 + 9}s ease-in-out infinite`;
         particle.style.animationDelay = `-${Math.random() * 15}s`;
         
+        const depth = (Math.random() * 0.3 + 0.05).toFixed(2);
+        particle.setAttribute('data-depth', depth);
+        
         heroParticles.appendChild(particle);
+        particles.push(particle);
     }
+    
+    let lastScrollY = window.scrollY;
+    let rafId = null;
+    
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        
+        if (rafId) {
+            cancelAnimationFrame(rafId);
+        }
+        
+        rafId = requestAnimationFrame(() => {
+            const scrollY = window.scrollY;
+            
+            if (scrollY < window.innerHeight) {
+                particles.forEach(particle => {
+                    const depth = parseFloat(particle.getAttribute('data-depth'));
+                    const translateY = scrollY * depth * -1;
+                    
+                    if (particle.style.transform.includes('rotate')) {
+                        particle.style.transform = `rotate(45deg) translateY(${translateY}px)`;
+                    } else {
+                        particle.style.transform = `translateY(${translateY}px)`;
+                    }
+                });
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', onScroll, { passive: true });
 }
 
 document.addEventListener('DOMContentLoaded', initHeroParticles);
