@@ -13,7 +13,7 @@ function initHeroParticles() {
     hero.insertBefore(heroParticles, hero.firstChild);
     
     const particles = [];
-    const particleCount = 10;
+    const particleCount = 20;
     
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
