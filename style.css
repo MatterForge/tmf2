@@ -105,6 +105,7 @@ section {
     padding: 0 10vw;
     background-color: var(--bg-0);
     background-image: radial-gradient(circle at 90% 0%, rgba(235, 71, 60, 0.04) 0%, transparent 40%);
+    position: relative;
 }
 
 #hero .label {
@@ -242,4 +243,36 @@ section {
 #about .tags span:hover {
     border-color: var(--accent);
     color: var(--text-primary);
+}
+
+@keyframes float-a {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(18px, -24px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes float-b {
+    0% {
+        transform: translate(0, 0);
+    }
+    33% {
+        transform: translate(-14px, 20px);
+    }
+    66% {
+        transform: translate(10px, -12px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.particle {
+    will-change: transform;
+    pointer-events: none;
 }
