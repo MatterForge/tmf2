@@ -28,7 +28,7 @@ function initHeroParticles() {
             particle.style.transform = 'rotate(45deg)';
         }
         
-        const size = Math.floor(Math.random() * 30) + 6;
+        const size = Math.floor(Math.random() * 34) + 8;
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
         
@@ -41,10 +41,10 @@ function initHeroParticles() {
         particle.style.background = 'transparent';
         
         if (isSpecial) {
-            particle.style.background = 'rgba(235, 71, 60, 0.07)';
+            particle.style.background = 'rgba(235, 71, 60, 0.12)';
             particle.style.border = 'none';
         } else {
-            particle.style.border = '1px solid rgba(235, 71, 60, 0.15)';
+            particle.style.border = '1px solid rgba(235, 71, 60, 0.25)';
         }
         
         const animation = i % 2 === 0 ? 'float-a' : 'float-b';
