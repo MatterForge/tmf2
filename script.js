@@ -13,7 +13,7 @@ function initHeroParticles() {
     hero.insertBefore(heroParticles, hero.firstChild);
     
     const particles = [];
-    const particleCount = 20;
+    const particleCount = 30;
     
     const shapes = ['circle', 'square', 'rectangle', 'triangle', 'diamond'];
     
