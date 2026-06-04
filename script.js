@@ -49,14 +49,14 @@ function initHeroParticles() {
         particle.style.top = `${top}%`;
         particle.style.position = 'absolute';
         
-        particle.style.background = 'transparent';
+        particle.style.background = 'rgba(235, 71, 60, 0.08)';
         
         const isSpecial = i === 2 || i === 7;
         if (isSpecial) {
-            particle.style.background = 'rgba(235, 71, 60, 0.12)';
+            particle.style.background = 'rgba(235, 71, 60, 0.15)';
             particle.style.border = 'none';
         } else {
-            particle.style.border = '1px solid rgba(235, 71, 60, 0.25)';
+            particle.style.border = '1px solid rgba(235, 71, 60, 0.4)';
         }
         
         const animation = i % 2 === 0 ? 'float-a' : 'float-b';
