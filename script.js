@@ -15,16 +15,27 @@ function initHeroParticles() {
     const particles = [];
     const particleCount = 20;
     
+    const shapes = ['circle', 'square', 'rectangle', 'triangle', 'diamond'];
+    
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
         
-        const isCircle = i % 2 === 0;
-        const isSpecial = i === 2 || i === 7;
+        const shape = shapes[Math.floor(Math.random() * shapes.length)];
         
-        if (isCircle) {
+        if (shape === 'circle') {
             particle.style.borderRadius = '50%';
-        } else {
+        } else if (shape === 'square') {
+            particle.style.borderRadius = '0';
+        } else if (shape === 'rectangle') {
+            const aspectRatio = Math.random() > 0.5 ? 2 : 0.5;
+            const size = Math.floor(Math.random() * 34) + 8;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size * aspectRatio}px`;
+            particle.style.borderRadius = '0';
+        } else if (shape === 'triangle') {
+            particle.style.clipPath = 'polygon(50% 0%, 0% 100%, 100% 100%)';
+        } else if (shape === 'diamond') {
             particle.style.transform = 'rotate(45deg)';
         }
         
@@ -40,6 +51,7 @@ function initHeroParticles() {
         
         particle.style.background = 'transparent';
         
+        const isSpecial = i === 2 || i === 7;
         if (isSpecial) {
             particle.style.background = 'rgba(235, 71, 60, 0.12)';
             particle.style.border = 'none';
