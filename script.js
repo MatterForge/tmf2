@@ -28,8 +28,8 @@ function initHeroParticles() {
         } else if (shape === 'square') {
             particle.style.borderRadius = '0';
         } else if (shape === 'rectangle') {
-            const aspectRatio = Math.random() > 0.5 ? 2 : 0.5;
-            const size = Math.floor(Math.random() * 34) + 8;
+            const aspectRatio = Math.random() > 0.5 ? Math.random() * 1.5 + 0.8 : Math.random() * 0.8 + 0.6;
+            const size = Math.floor(Math.random() * 28) + 12;
             particle.style.width = `${size}px`;
             particle.style.height = `${size * aspectRatio}px`;
             particle.style.borderRadius = '0';
@@ -39,7 +39,7 @@ function initHeroParticles() {
             particle.style.transform = 'rotate(45deg)';
         }
         
-        const size = Math.floor(Math.random() * 34) + 8;
+        const size = Math.floor(Math.random() * 28) + 12;
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
         
