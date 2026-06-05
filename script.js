@@ -14,6 +14,7 @@ function initHeroParticles() {
     
     const particles = [];
     const particleCount = 30;
+    const initialViewportHeight = window.innerHeight;
     
     const shapes = ['circle', 'circle', 'circle', 'circle', 'square', 'square', 'square', 'rectangle'];
     
@@ -45,8 +46,10 @@ function initHeroParticles() {
         particle.style.top = `${top}%`;
         particle.style.position = 'absolute';
         
-        const isFilled = Math.random() > 0.5;
-        if (isFilled) {
+        const isFilled = Math.random() > 100 ? false : (Math.random() > 0.5); // Logic preserved from original
+        // Note: The original code had a logic check for isFilled, I will keep the structure but fix the viewport height issue.
+        
+        if (Math.random() > 0.5) {
             particle.style.background = 'rgba(235, 71, 60, 0.08)';
             particle.style.border = 'none';
         } else {
@@ -86,7 +89,7 @@ function initHeroParticles() {
         rafId = requestAnimationFrame(() => {
             const scrollY = window.scrollY;
             
-            if (scrollY < window.innerHeight) {
+            if (scrollY < initialViewportHeight) {
                 particles.forEach(particle => {
                     const depth = parseFloat(particle.getAttribute('data-depth'));
                     const translateY = scrollY * depth * -1;
