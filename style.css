@@ -189,13 +189,13 @@ section {
 
 .links-grid {
     width: 100%;
-    max-width: 480px;
+    max-width: 640px;
 }
 
 .link-card {
     display: block;
     width: 100%;
-    max-width: 480px;
+    max-width: 640px;
     background-color: var(--bg-1);
     padding: 1.25rem 1.5rem;
     margin-bottom: 0.75rem;
