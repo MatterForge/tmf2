@@ -166,6 +166,27 @@ section {
     margin-bottom: 3rem;
 }
 
+.links-container {
+    position: relative;
+    padding: 2rem;
+    background: linear-gradient(145deg, var(--bg-1) 0%, var(--bg-2) 100%);
+    border-radius: 16px;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        0 6px 12px rgba(235, 71, 60, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateY(4px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.links-container:hover {
+    transform: translateY(2px);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.4),
+        0 4px 10px rgba(235, 71, 60, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
 .links-grid {
     width: 100%;
     max-width: 480px;
@@ -178,17 +199,19 @@ section {
     background-color: var(--bg-1);
     padding: 1.25rem 1.5rem;
     margin-bottom: 0.75rem;
-    border-left: 3px solid var(--accent);
+    border: 2px solid var(--accent);
+    border-radius: 8px;
     color: var(--text-primary);
     font-family: 'DM Sans', sans-serif;
     font-size: 1rem;
     text-decoration: none;
-    transition: background 150ms, transform 150ms;
+    transition: background 150ms, transform 150ms, box-shadow 150ms;
 }
 
 .link-card:hover {
     background-color: var(--bg-2);
     transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(235, 71, 60, 0.2);
 }
 
 #about {
