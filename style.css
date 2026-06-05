@@ -112,7 +112,7 @@ section {
     font-family: 'Space Mono', monospace;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    font-size: 0.75rem;
+    font-size: 1rem;
     color: var(--accent);
     margin-bottom: 1rem;
 }
@@ -159,7 +159,7 @@ section {
 
 #links h2 {
     font-family: 'Space Mono', monospace;
-    font-size: 0.75rem;
+    font-size: 1rem;
     letter-spacing: 0.25em;
     color: var(--accent);
     text-align: center;
@@ -219,7 +219,7 @@ section {
 
 #about h2 {
     font-family: 'Space Mono', monospace;
-    font-size: 0.75rem;
+    font-size: 1rem;
     letter-spacing: 0.25em;
     color: var(--accent);
     margin-bottom: 2.5rem;
