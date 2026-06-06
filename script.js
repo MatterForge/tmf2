@@ -46,9 +46,6 @@ function initHeroParticles() {
         particle.style.top = `${top}%`;
         particle.style.position = 'absolute';
         
-        const isFilled = Math.random() > 100 ? false : (Math.random() > 0.5); // Logic preserved from original
-        // Note: The original code had a logic check for isFilled, I will keep the structure but fix the viewport height issue.
-        
         if (Math.random() > 0.5) {
             particle.style.background = 'rgba(235, 71, 60, 0.08)';
             particle.style.border = 'none';
@@ -107,4 +104,66 @@ function initHeroParticles() {
     window.addEventListener('scroll', onScroll, { passive: true });
 }
 
-document.addEventListener('DOMContentLoaded', initHeroParticles);
+function initMobileMenu() {
+    const navbar = document.getElementById('navbar');
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (!hamburger || !navLinks) return;
+    
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        
+        // Toggle hamburger icon animation
+        const spans = hamburger.querySelectorAll('span');
+        if (navLinks.classList.contains('active')) {
+            spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+            spans[1].style.opacity = '0';
+            spans[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+        } else {
+            spans[0].style.transform = '';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = '';
+        }
+    });
+
+    // Close menu when clicking a link
+    navLinks.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                hamburger.click();
+            }
+        });
+    });
+
+    // Handle window resize to reset mobile menu on desktop view
+    let timeoutId;
+    window.addEventListener('resize', () => {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+            if (window.innerWidth > 768) {
+                navLinks.classList.remove('active');
+                const spans = hamburger.querySelectorAll('span');
+                spans[0].style.transform = '';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = '';
+            }
+        }, 250);
+    });
+
+    // Close menu when clicking outside on mobile
+    document.addEventListener('click', (e) => {
+        if (!navbar.contains(e.target)) {
+            navLinks.classList.remove('active');
+            const spans = hamburger.querySelectorAll('span');
+            spans[0].style.transform = '';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = '';
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initHeroParticles();
+    initMobileMenu();
+});
