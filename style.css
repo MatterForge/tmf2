@@ -95,7 +95,6 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    scroll-margin-top: 80px;
 }
 
 #hero {
